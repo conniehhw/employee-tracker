@@ -1,7 +1,9 @@
 const express = require('express');
 const mysql = require('mysql2');
+const cTable = require('console.table');
 
 const PORT = process.env.PORT || 3001;
+const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -17,10 +19,19 @@ const db = mysql.createConnection(  // passing this object db
    console.log(`Connected to the companyEmployee-db database.`) //2nd argument?
 );
 
+db.connect(function(err) {
+    if (err) throw err;
+    db.query("SELECT * FROM department", function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+      console.table(result);
+    });
+  });
+
 //Query Database
-db.query('SELECT * FROM <tablename>', function (err, results) {
-    console.log(results);
-});
+// db.query('SELECT * FROM <tablename>', function (err, results) {
+//     console.log(results);
+// });
 
 // Default response for any other request (Not found)
 app.use((req, res) => {

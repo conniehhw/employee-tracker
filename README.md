@@ -18,10 +18,10 @@ This application uses
 
 ## Preview & Usage
 
-1. 
-2. 
-3. 
-4. 
+1. Ask User to answer which table they wish to view.
+2. Ask User to add a Department. (Their response is stored into a variable to add to Depart Table)
+3. Ask User to add a role (role, salary, department)
+4. Ask User to add an employee (first last name,    role, manager's name)
 5. 
 
 
