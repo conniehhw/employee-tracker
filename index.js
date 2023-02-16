@@ -1,39 +1,41 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-// const mysql = require('mysql2');
+const mysql = require('mysql2');
 const cTable = require('console.table');
 
-// fs.readFile('schema.sql', 'utf8', (error, data) =>
-// error ? console.error(error) : console.log(data));
+var mcqList = 
+{
+    type: "list",
+    message: "What would you like to do?", //question to print
+    name: "viewAddUpdate",
+    choices: [ // array
+      "View All Departments", // let viewDepart = view all depart. choice
+      "View All Roles",       //
+      "View All Employees",
+      "Add A Department",
+      "Add A Role",
+      "Add An Employee",
+      "Update An Employee Role",
+    ]
+  };
 
-// const cTable = require("console.table");
-// console.table([
-//   {
-//     name: "foo",
-//     age: 10,
-//   },
-//   {
-//     name: "bar",
-//     age: 20,
-//   },
-// ]);
+// let viewDepartTable = db.query(SELECT * FROM department);
+// let viewRoleTable = db.query(SELECT * FROM roles);
+// let viewEmployeesTable = db.query(SELECT * FROM employees);
 
+function quizMcq() {
+  let userAnswer = something
 
-const askMain = // store the user's response for each question in a variable for later use
-    {
-      type: "list",
-      message: "What would you like to do?",
-      name: "viewAddUp",
-      choices: [ // array
-        "View All Departments", // let viewDepart = view all depart. choice
-        "View All Roles",       //
-        "View All Employees",
-        "Add A Department",
-        "Add A Role",
-        "Add An Employee",
-        "Update An Employee Role",
-      ]
-    };
+    if(userAnswer === "View All Departments") {
+      console.log(viewDepartTable);
+    } else if (userAnswer === "View All Roles") {
+      console.log(viewRoleTable);
+    } else if (userAnswer === "View All Employees") {
+      console.log(viewEmployeesTable);
+    } else {
+      console.log("Error")
+    }
+};
 
     let viewDepartT = renderDepartmentTable(); // db.query(SELECT * FROM departments)
     let viewRoles = renderRolesTable();
@@ -41,17 +43,11 @@ const askMain = // store the user's response for each question in a variable for
 
     let userInput
 
-    var askMain = // list of questions for Main menu
+
     function quizAskMain(choices, message, type){  // read user input & print the table
       let userInput = readlineSync.keyInSelect(choices, message);
-      if(choices[userInput] === input) {
-        console.log("You selected " + input);
-        renderDepartmentTable();
-      }
-    }
 
-    
-
+    };
 
     let addDepart = addDepartment(); //add response to department table
   
@@ -143,34 +139,4 @@ const addRole = [
   
 
 
-    // {
-    //   type: "checkbox",
-    //   message: "What languages do you know?",
-    //   name: "stack",
-    //   choices: ["HTML", "CSS", "JavaScript", "MySQL"],
-    // },
-    // {
-    //   type: "list",
-    //   message: "What is your preferred method of communication?",
-    //   name: "contact",
-    //   choices: ["email", "phone", "telekinesis"],
-    // },
   
-  /*.then((data) => {
-    const filename = `${data.toDo.toLowerCase().split(" ").join("")}.json`;
-
-    fs.writeFile(filename, JSON.stringify(data, null, "\t"), (err) =>
-      err ? console.log(err) : console.log("Success!")
-    );
-  });*/
-
-  // .then((answers) => {
-  //   console.log();
-  // })
-  // .catch((error) => {
-  //   if (error.isTtyError) {
-  //     // Prompt couldn't be rendered in the current environment
-  //   } else {
-  //     // Something else went wrong
-  //   }
-  // });

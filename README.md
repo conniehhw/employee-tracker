@@ -1,35 +1,24 @@
 # Employee Tracker
 
-Link to Heroku Deployed site: [https:/](https:/)
+Link to video walk through: [https:/](https:/)
 
 ## Description
 
-This is an appication called:
+This is a command-line application from scratch to manage a company's employee database.
 
-The purpose of the app is: 
-
+The purpose of the app is to provide an interface that allow non-developers to easily view and interact with the information stored in databases, such as a content management system (CMS).
 
 ## Installation
 
-This application uses 
-
-
-
+This application uses Node.js, Inquirer, and MySQL.
 
 ## Preview & Usage
 
-1. Ask User to answer which table they wish to view.
-2. Ask User to add a Department. (Their response is stored into a variable to add to Depart Table)
-3. Ask User to add a role (role, salary, department)
-4. Ask User to add an employee (first last name,    role, manager's name)
-5. 
+1. Upon run - it will prompt the user which task they would like to work on.
+2. Department, roles and employee tables can be viewed.
+3. There is also additional prompts to add a role and an employee.
 
-
-![Screen shot - ](./public/assets/images/NoteTakerGetStarted.jpg)
-![Screen shot - ](./public/assets/images/BlankNotePage.jpg)
-![Screen shot - ](./public/assets/images/NoteListRetrieved.jpg)
-![Screen shot - ](./public/assets/images/ReadyAddNewNotePlus.jpg)
-
+![Screen shot - Console Table](./Console-tables.jpg)
 
 ## License
 
