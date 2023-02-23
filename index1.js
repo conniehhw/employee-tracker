@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const mysql = require("mysql2");
 const cTable = require("console.table");
+import { db } from "./server";
 
 var mcqList = {
   type: "list",
@@ -19,9 +20,9 @@ var mcqList = {
   ],
 };
 
-db.query("SELECT * FROM departments", function (err, results) {
+db.query("SELECT * FROM department", function (err, results) {
   console.log(results);
+  console.table(results);
 });
 
 inquirer.prompt(mcqList);
-console.table();
