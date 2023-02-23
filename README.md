@@ -1,6 +1,6 @@
 # Employee Tracker
 
-Link to video walk through: [https:/](https:/)
+Link to video walk through: [https://drive.google.com/file/d/1uf0lop4J_qulTHRk_bkLCkbBWu3lfdJh/view](https://drive.google.com/file/d/1uf0lop4J_qulTHRk_bkLCkbBWu3lfdJh/view)
 
 ## Description
 

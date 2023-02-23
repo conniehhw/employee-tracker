@@ -1,5 +1,6 @@
+// test document to assign variables to user answers and console table the corresponding table from mySQL
+
 const inquirer = require("inquirer");
-const fs = require("fs");
 const mysql = require("mysql2");
 const cTable = require("console.table");
 
@@ -19,9 +20,9 @@ var mcqList = {
   ],
 };
 
-let viewDepartTable = db.query(SELECT * FROM departments);
-let viewRoleTable = db.query(SELECT * FROM roles);
-let viewEmployeesTable = db.query(SELECT * FROM employees);
+let viewDepartTable = db.query("SELECT * FROM departments");
+let viewRoleTable = db.query("SELECT * FROM roles");
+let viewEmployeesTable = db.query("SELECT * FROM employees");
 
 function quizMcq() {
   let userAnswer = something;
@@ -54,8 +55,8 @@ function addDepartment(message, type) { //take input questinon & answer from arr
     let userInput = readlineSync.question(question); // what is inquirer equivalent?
 
     if (userInput == input ) {
-    INSERT INTO department (id, department_name)
-    VALUES (1, "Sales");
+    "INSERT INTO department (id, department_name)
+    VALUES (1, "Sales")";
     } //if response === A, insert A into table
 }
 

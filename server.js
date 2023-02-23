@@ -25,13 +25,14 @@ app.listen(PORT, () => {
   // console.log(`Server running on port ${PORT}`);
 });
 
+// list of main menu questions
 var questions = {
   type: "list",
   message: "What would you like to do?", //question to print
   name: "viewAddUpdate",
   choices: [
     // array
-    "View All Departments", // let viewDepart = view all depart. choice
+    "View All Departments", //
     "View All Roles", //
     "View All Employees",
     "Add A Department",
@@ -40,13 +41,14 @@ var questions = {
     "Update An Employee Role",
   ],
 };
-
+// question prompting user input
 var addDepartment = {
   type: "input",
   message: "What is the name of the department?",
   name: "addDepart",
 };
 
+// method to prompt questions; based on user answers, database queries the corresponding table to console.
 inquirer.prompt(questions).then(function (answers) {
   console.log(answers.viewAddUpdate);
   if (answers.viewAddUpdate === "View All Departments") {
@@ -65,63 +67,16 @@ inquirer.prompt(questions).then(function (answers) {
     });
   }
   if (answers.viewAddUpdate === "Add A Department") {
-    // console.log('Answers:', answers.viewAddUpdate);
-    inquirer.prompt(addDepartment).then((answers) => {
+    //need correct syntax to insert user answer into corresponding table
+    inquirer.prompt(addDepartment).then(function (answers) {
       console.info(answers.addDepart);
+      db.query(
+        "INSERT INTO department (id, department_name) VALUES ?",
+        ("id", "department_name")
+      ),
+        function (err, results) {
+          console.table(results);
+        };
     });
-    // db.query("SELECT * FROM EMPLOYEE", function (err, results) {
-    //   console.table(results);
   }
 });
-
-// if (answers === "View All Departments") {
-//   db.query("SELECT * FROM DEPARTMENT", function (err, results) {
-//     console.table(results);
-//   });
-
-//   // console.info("Answer:", answers.viewAddUpdate);
-//   if (answers === "View All Departments") {
-//     db.query("SELECT * FROM DEPARTMENT", function (err, results) {
-//       console.table(results);
-//     });
-//   }
-// });
-
-// if (answers === "View All Departments") {
-//   db.query("SELECT * FROM department", function (err, results) {
-//           console.table(results);
-
-//   }) } else if (answers === "View All Roles")
-//     console.info("Answer:", answers.viewAddUpdate),
-//     db.query("SELECT * FROM department", function (err, results) {
-//       console.table(results);
-// })
-// });
-
-// } else if (answers === "View All Roles")
-//     console.info("Answer:", answers.viewAddUpdate);
-//     db.query("SELECT * FROM roles", function (err, results) {
-//     // console.log(results);
-//     console.table(results);
-//   })
-// };
-
-// // Query database
-// db.query("SELECT * FROM department", function (err, results) {
-//   console.log(results);
-//   console.table(results);
-// });
-
-// db.query("SELECT * FROM roles", function (err, results) {
-//   console.log(results);
-//   console.table(results);
-// });
-
-// db.query("SELECT * FROM employee", function (err, results) {
-//   console.log(results);
-//   console.table(results);
-// });
-
-// app.listen(PORT, () => {
-//   console.log(`Server running on port ${PORT}`);
-// });
