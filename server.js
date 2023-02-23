@@ -41,6 +41,12 @@ var questions = {
   ],
 };
 
+var addDepartment = {
+  type: "input",
+  message: "What is the name of the department?",
+  name: "addDepart",
+};
+
 inquirer.prompt(questions).then(function (answers) {
   console.log(answers.viewAddUpdate);
   if (answers.viewAddUpdate === "View All Departments") {
@@ -57,6 +63,14 @@ inquirer.prompt(questions).then(function (answers) {
     db.query("SELECT * FROM EMPLOYEE", function (err, results) {
       console.table(results);
     });
+  }
+  if (answers.viewAddUpdate === "Add A Department") {
+    // console.log('Answers:', answers.viewAddUpdate);
+    inquirer.prompt(addDepartment).then((answers) => {
+      console.info(answers.addDepart);
+    });
+    // db.query("SELECT * FROM EMPLOYEE", function (err, results) {
+    //   console.table(results);
   }
 });
 
