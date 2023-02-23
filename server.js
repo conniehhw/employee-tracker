@@ -53,6 +53,11 @@ inquirer.prompt(questions).then(function (answers) {
       console.table(results);
     });
   }
+  if (answers.viewAddUpdate === "View All Employees") {
+    db.query("SELECT * FROM EMPLOYEE", function (err, results) {
+      console.table(results);
+    });
+  }
 });
 
 // if (answers === "View All Departments") {
